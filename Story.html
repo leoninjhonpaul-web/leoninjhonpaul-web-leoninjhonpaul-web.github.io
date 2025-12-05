@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Story in the Book</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;500&display=swap');
+
+    body {
+        background-color: #f7f1e0;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        margin: 40px;
+        font-family: 'Cormorant Garamond', serif;
+        color: #3e2f1c;
+        line-height: 1.30;
+        text-align: justify;
+    }
+
+    h1 {
+        font-family: 'Cinzel Decorative', serif;
+        font-size: 50px; 
+        background: linear-gradient(90deg, #8b5a2b, #c29a6b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 35px;
+        color: #ffffff; /* white text */
+        margin-top: 50px;
+        margin-bottom: 25px;
+        text-align: center;
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.7); /* soft golden glow */
+    }
+
+    p {
+        font-size: 21px;
+        max-width: 850px;
+        margin: 25px auto;
+        padding: 18px 28px;
+        background-color: rgba(255, 250, 240, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        position: relative;
+        text-align: justify;
+    }
+
+    p:first-of-type::first-letter {
+        float: left;
+        font-size: 75px;
+        font-family: 'Cinzel Decorative', serif;
+        line-height: 1;
+        padding-right: 12px;
+        padding-top: 5px;
+        color: #9c5c31;
+        text-align: justify;
+    }
+
+    hr {
+        width: 80%;
+        border: 2px solid #d4b97d;
+        margin: 50px auto;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 80px;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .footer div {
+        text-align: center;
+        width: 280px;
+    }
+
+    .footer img {
+        width: 150px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #d4b97d;
+        margin-bottom: 15px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    .footer h3 {
+        font-family: 'Cinzel', serif;
+        font-size: 22px;
+        margin: 5px 0;
+        color: white;
+    }
+
+    .footer span {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        color: #ffffff;
+        display: block;
+        margin-top: 6px;
+    }
+
+    @media (max-width: 900px) {
+        h1 {
+            font-size: 65px;
+        }
+        h2 {
+            font-size: 32px;
+        }
+        p {
+            font-size: 19px;
+            padding: 14px 20px;
+        }
+        .footer {
+            flex-direction: column;
+            gap: 30px;
+        }
+        .footer img {
+            width: 140px;
+            height: 140px;
+        }
+        .footer h3 {
+            font-size: 20px;
+        }
+        .footer span {
+            font-size: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>The Story In The Book</h1>
+<hr>
+
+<h2>Chapter 1</h2>
+
+<p>
+    Molly had been staring out of her window for about an hour now. On her desk, lying between the 
+    copies of <i>Nature</i>, <i>New Scientist</i>, and all the other scientific journals
+    her work had appeared in, was a well-thumbed copy of <cite>On The Road</cite>.
+    It had been Molly's favorite book since college, and the longer she spent in 
+    these four walls, the more she felt she needed to be free.
+</p>
+
+<p>
+    She had spent the last ten years in this room, sitting under a poster with an 
+    Oscar Wilde quote proclaiming that <q>Work is the refuge of people who
+    have nothing better to do</q>. Although many considered her pioneering
+    work unravelling the secret of the llama
+    <abbr title="Deoxyribonucleic acid">DNA</abbr> to be an outstanding
+    achievement, Molly <em>did</em> think she had something better to do.
+</p>
+
+<hr>
+
+<div class="footer">
+    <div>
+        <img src="me.jpg" alt="Jhon Paul P. Leonin">
+        <h3>Submitted by:</h3>
+        <span>Jhon Paul P. Leonin</span>
+    <hr>
+    </div>
+
+    <div>
+        <img src="sir.jpg" alt="Sir Sherwin Sanggalang">
+        <h3>Submitted to:</h3>
+        <span>Sir Sherwin Sanggalang</span>
+   <hr>
+   </div>
+</div>
+
+</body>
+</html>
