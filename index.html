@@ -1,501 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chicken Pastil Order Form</title>
-<style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('wood.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
 
-  .container {
-    display: flex;
-    gap: 30px;
-    width: 90%;
-    max-width: 1200px;
-    margin-top: 30px;
-    align-items: stretch; /* para pareho ang height ng boxes */
-  }
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            padding: 15px 0;
+        }
 
-  .description, .browser-frame {
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    backdrop-filter: blur(6px);
-    background-color: rgba(255,255,255,0.3);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
+        .navbar .logo {
+            display: none;
+        }
 
-  .description {
-    width: 42%;
-    text-align: center;
-    font-family: 'Georgia', 'Times New Roman', serif;
-  }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
 
-  .description h1 {
-    font-size: 48px;
-    color: #3b2f2f;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.4),
-                 0 0 10px rgba(255,215,0,0.5);
-    font-family: 'Brush Script MT', cursive;
-  }
+        .nav-links a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-  .description img {
-    width: 90%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
+        .nav-links a:hover {
+            color: lightgray;
+        }
 
-  .description p {
-    font-size: 35px;
-    line-height: 1.8;
-    font-weight: 500;
-    padding: 5px;
-    background-color: transparent;
-  }
+        /* ===== HOME SECTION ===== */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background-image: url('BR.jpg'); /* palitan ng gusto mong image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-  .browser-frame {
-    width: 48%;
-    position: relative;
-    border: 3px solid transparent;
-    overflow: hidden;
-  }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
 
-  .browser-frame::before {
-    content:"";
-    position: absolute;
-    inset: -3px;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #ff8800, #ff0000, #ffdd00, #ff6600);
-    background-size: 300% 300%;
-    animation: borderGlow 1.5s infinite linear;
-    z-index: -1;
-  }
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-  @keyframes borderGlow {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
+        .hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
 
-  .form-container {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-size: 13px;
-    color: #222;
-  }
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px black;
+        }
 
-  h1 {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
 
-  .section {
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(0,0,0,0.5);
-  }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
 
-  .section h2 {
-    font-size: 12px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
+        .btn:hover {
+            background: #333;
+        }
 
-  label {
-    font-weight: 600;
-    font-size: 12px;
-    display: block;
-    margin-top: 4px;
-  }
+        /* ===== ABOUT SECTION ===== */
+        .about-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.65);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: justify;
+            line-height: 2.0;
+        }
 
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  input[type="date"],
-  select,
-  textarea {
-    padding: 5px 8px;
-    border: 1px solid #000;
-    border-radius: 4px;
-    font-size: 12px;
-    margin-bottom: 6px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #000;
-  }
+        .about-card h2 {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+            margin-bottom: 20px;
+        }
 
-  textarea { resize: none; }
+        .about-section {
+            background-image: url('fam.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+        }
 
-  .short-input { width: 100%; }
-  .contact-input { width: 100%; }
-  .address-box { width: 100%; height: 40px; }
-  .short-select, .short-date, .short-textarea { width: 100%; }
-  .card-input { width: 100%; }
+        /* ===== PROJECTS SECTION ===== */
+        .projects {
+            background-image: url('pics.jpg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+        }
 
-  .flavor-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-  .flavor-option label {
-    flex: 2;
-  }
+        .project-card {
+            margin-bottom: 20px;
+        }
 
-  .flavor-option select { flex: 1; }
-  .price { flex: 1; font-weight: bold; text-align: right; }
+        /* ===== CONTACT SECTION ===== */
+        .contact-bg {
+            background-image: url('contact.jpg'); /* palitan ng gusto mong image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 80px 20px;
+            border-radius: 10px;
+        }
 
-  .total-container {
-    text-align: right;
-    font-weight: bold;
-    border-top: 1px solid #000;
-    padding-top: 4px;
-  }
+        .contact-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: 1;
+        }
 
-  button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    font-weight: bold;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 14px;
-    transition: 0.2s ease;
-  }
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+        }
 
-  button:hover { background-color: #333; transform: scale(1.02); }
+        .contact-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px black;
+        }
 
-  .receipt-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-  }
+        .contact-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
 
-  .receipt-box {
-    background: linear-gradient(135deg,#fff8e1,#ffe0b2);
-    border:2px solid #ff9800;
-    border-radius:12px;
-    padding:25px 30px;
-    width: 380px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.4);
-    text-align:left;
-    font-size:13px;
-    color:#333;
-    line-height:1.6;
-    font-family:'Calibri',sans-serif;
-  }
+        .contact-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
 
-  .receipt-box h2 {
-    text-align:center;
-    color:#d84315;
-    border-bottom:2px solid #ff9800;
-    padding-bottom:6px;
-    margin-bottom:12px;
-    font-size:18px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    text-shadow:1px 1px 2px rgba(255,152,0,0.5);
-  }
+        .contact-content ul li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
 
-  .receipt-section { margin-bottom:10px; border-bottom:1px dashed #ffa726; padding-bottom:6px; }
-  .receipt-section strong { color:#e65100; }
-  .close-btn { margin-top:10px; background:#000; color:#fff; border:none; padding:6px 14px; border-radius:5px; cursor:pointer; width:100%; }
-  .close-btn:hover{background:#333;}
-  #orderMessage{
-    display:none;
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#28a745;
-    color:#fff;
-    padding:15px 25px;
-    border-radius:8px;
-    font-weight:bold;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    z-index:20;
-    opacity:0;
-    transition: opacity 0.5s;
-  }
-</style>
+        iframe {
+            border: 0;
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        /* Hide sections by default EXCEPT HOME */
+        #about, #projects, #contact {
+            display: none;
+        }
+
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="description">
-    <h1>Chicken Pastil</h1>
-    <img src="desc.jpg" alt="Chicken Pastil">
-    <p>Chicken Pastil is a Filipino rice meal topped with shredded chicken cooked in soy sauce and spices, wrapped in banana leaves for a flavorful and convenient dish.</p>
-  </div>
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="browser-frame">
-    <div class="form-container">
-      <h1>Order Form</h1>
-
-      <!-- Customer Info -->
-      <div class="section">
-        <h2>Customer Info</h2>
-        <label>Full Name:</label>
-        <input type="text" id="custName" required>
-        <label>Email:</label>
-        <input type="email" id="custEmail" required>
-        <label>Contact Number:</label>
-        <input type="text" id="custContact" maxlength="11" required>
-        <label>Address:</label>
-        <textarea id="custAddress" required></textarea>
-      </div>
-
-      <!-- Order Details -->
-      <div class="section">
-        <h2>Order Details</h2>
-        <label>Pastil Flavor:</label>
-        <div class="flavor-option">
-          <label><input type="checkbox" class="flavor" data-name="Regular Chicken" data-price="50"> Regular Chicken</label>
-          <select class="quantity"><option value="0"></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-          <span class="price">₱0</span>
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>MY PORTFOLIO</h1>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <p>Hello! I'm Jhon Paul P. Leonin, an 18-year-old IT student from OMSC San Jose Campus.</p>
+            <p>I am passionate about web development, technology, and creating meaningful projects.</p>
+            <p>Explore my work below and learn more about me!</p>
+            <a href="#" onclick="showSection('projects')" class="btn">View My Work</a>
         </div>
-        <div class="flavor-option">
-          <label><input type="checkbox" class="flavor" data-name="Spicy Chicken" data-price="90"> Spicy Chicken</label>
-          <select class="quantity"><option value="0"></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-          <span class="price">₱0</span>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+        <div class="about-card">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is <b>Jhon Paul P. Leonin</b>, an <b>18-year-old IT student</b> born on <b>January 22, 2007</b> in <b>Mamburao, Occidental Mindoro</b>. I am currently studying at <b>OMSC–San Jose Campus</b>, where I am continuously developing my skills in technology, web development, and digital creativity. I am highly motivated, detail-oriented, and passionate about building meaningful projects that can make a positive impact.
+                <br><br>
+                I grew up in a supportive and loving family. My mother, <b>Esther P. Leonin</b>, and my father, <b>Francisco Y. Leonin Jr.</b>, have always inspired me to stay humble, responsible, and determined in everything I do. I have two brothers, <b>Jaxith Pierre</b> and <b>Marc Justin Leonin</b>, who encourage me to pursue my goals and always give my best effort.
+                <br><br>
+                I enjoy engaging in a variety of activities, including <b>driving, singing, biking, traveling, photography, and exploring new places</b>. I am also a food enthusiast who loves trying local street foods and discovering unique culinary experiences. My favorite foods are <b>shawarma, french fries, pizza, and milk tea</b>, and my favorite place to relax is the <b>beach</b>. I also have a strong preference for <b>black and white</b> colors, which reflect my simple yet elegant style.
+                <br><br>
+                My long-term goal is to become a <b>skilled programmer</b> with expertise in web development and software engineering. I also aspire to serve my community as a <b>dedicated police officer</b>. I believe that hard work, continuous learning, and perseverance are key to achieving these ambitions, and I am committed to growing both personally and professionally every day.
+            </p>
         </div>
-        <div class="flavor-option">
-          <label><input type="checkbox" class="flavor" data-name="Hot & Spicy" data-price="120"> Hot & Spicy</label>
-          <select class="quantity"><option value="0"></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-          <span class="price">₱0</span>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-list">
+            <div class="project-card">
+                <img src="gg.jpg" alt="Story Project">
+                <h3>Short Story Website</h3>
+                <p>A simple webpage that showcases my creative writing story.</p>
+                <a href="story.html" class="btn">View Story</a>
+            </div>
+
+            <div class="project-card">
+                <img src="vv.jpg" alt="Recipe Project">
+                <h3>Recipe Website</h3>
+                <p>A simple recipe site showcasing delicious pork adobo with ingredients and instructions.</p>
+                <a href="Recipe.html" class="btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <img src="ee.jpg" alt="Paulpastil Project">
+                <h3>Ordered Form Website</h3>
+                <p>Website guides users to easily order Paulpastil online.</p>
+                <a href="Paulpastil.html" class="btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <img src="med.jpg" alt="Convertion Project">
+                <h3>Convertion Website</h3>
+                <p>A project that improves portfolio design with modern UI/UX features.</p>
+                <a href="convertion.html" class="btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <img src="B.jpg" alt="CSS">
+                <h3>Bycycle Website</h3>
+                <p>A project bycycle.</p>
+                <a href="CSS.html" class="btn">View Project</a>
+            </div>
         </div>
+    </section>
 
-        <label>Additional Juice (+₱50):</label>
-        <div class="flavor-option">
-          <label><input type="checkbox" id="addJuice" data-price="50"> Add Juice</label>
-          <select id="juiceFlavor" disabled>
-            <option value=""></option>
-            <option>Orange Juice</option>
-            <option>Mango Juice</option>
-            <option>Pineapple Juice</option>
-          </select>
-          <span id="juicePrice">₱0</span>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="contact-bg">
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+                <p>If you want to reach out, feel free to contact me through any of the following:</p>
+                <ul>
+                    <li><b>Contact No:</b> 09511692822</li>
+                    <li><b>Email:</b> <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
+                    <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
+                </ul>
+                <p>Visit my location:</p>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.092748450113!2d120.51535801513102!3d13.24218179060325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b2ee87ee2f7a37%3A0xc2b33f229ea91449!2sMulawin%2C%20Santa%20Cruz%2C%20Occidental%20Mindoro!5e0!3m2!1sen!2sph!4v1708795300000!5m2!1sen!2sph" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
+    </section>
 
-        <label>Delivery Date:</label>
-        <input type="date" id="deliveryDate" required>
+    <footer>
+        <p>&copy; 2025 Jhon Paul P. Leonin. All rights reserved.</p>
+    </footer>
 
-        <div class="total-container">Total: ₱<span id="total">0</span></div>
-        <label>Amount Paid:</label>
-        <input type="number" id="amountPaid" required>
-        <div class="total-container">Change: ₱<span id="change">0</span></div>
-      </div>
+    <!-- SHOW / HIDE SCRIPT -->
+    <script>
+        function showSection(section) {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("projects").style.display = "none";
+            document.getElementById("contact").style.display = "none";
 
-      <!-- Payment -->
-      <div class="section">
-        <h2>Payment Method</h2>
-        <select id="paymentMethod" required>
-          <option value=""></option>
-          <option>Cash on Delivery</option>
-          <option>GCash</option>
-          <option>Pay Maya</option>
-          <option>Card</option>
-        </select>
-        <div id="cardNumberContainer" style="display:none;">
-          <label>Card Number:</label>
-          <input type="password" id="cardNumber" maxlength="16" placeholder="Enter 16-digit card number">
-        </div>
-      </div>
-
-      <!-- Additional Note -->
-      <div class="section">
-        <h2>Additional Note</h2>
-        <textarea id="note" placeholder="Add any special instructions..." style="height:35px;"></textarea>
-      </div>
-
-      <button id="submitOrder">Submit Order</button>
-    </div>
-  </div>
-</div>
-
-<div id="orderMessage">Thank you! Your order has been submitted successfully!</div>
-
-<div class="receipt-modal" id="receiptModal">
-  <div class="receipt-box" id="receiptBox">
-    <h2>Order Receipt</h2>
-    <div id="receiptDetails"></div>
-    <button class="close-btn" onclick="closeReceipt()">Close</button>
-  </div>
-</div>
-
-<script>
-  // --- JavaScript ---
-  const totalDisplay = document.getElementById('total');
-  const changeDisplay = document.getElementById('change');
-  const paidInput = document.getElementById('amountPaid');
-  const paymentMethod = document.getElementById('paymentMethod');
-  const cardNumberContainer = document.getElementById('cardNumberContainer');
-  const cardNumberInput = document.getElementById('cardNumber');
-  const addJuice = document.getElementById('addJuice');
-  const juiceFlavor = document.getElementById('juiceFlavor');
-  const juicePrice = document.getElementById('juicePrice');
-  const orderMessage = document.getElementById('orderMessage');
-  let total = 0;
-
-  function updatePrices() {
-    total = 0;
-    document.querySelectorAll('.flavor-option').forEach(option => {
-      const checkbox = option.querySelector('.flavor');
-      const qtySelect = option.querySelector('.quantity');
-      const priceDisplay = option.querySelector('.price');
-      if (!checkbox) return;
-      const price = parseInt(checkbox.dataset.price);
-      const qty = parseInt(qtySelect ? qtySelect.value : 0) || 0;
-      if (checkbox.checked && qty > 0) {
-        priceDisplay.textContent = `₱${price*qty}`;
-        total += price*qty;
-      } else if (priceDisplay) {
-        priceDisplay.textContent = '₱0';
-      }
-    });
-
-    if (addJuice.checked) {
-      juiceFlavor.disabled = false;
-      juicePrice.textContent = "₱50";
-      total += 50;
-    } else {
-      juiceFlavor.disabled = true;
-      juiceFlavor.value = "";
-      juicePrice.textContent = "₱0";
-    }
-
-    totalDisplay.textContent = total.toFixed(2);
-    updateChange();
-  }
-
-  function updateChange() {
-    const paid = parseFloat(paidInput.value) || 0;
-    changeDisplay.textContent = paid >= total ? (paid - total).toFixed(2) : '0.00';
-  }
-
-  paymentMethod.addEventListener('change', () => {
-    cardNumberContainer.style.display = paymentMethod.value==='Card'?'block':'none';
-    if(paymentMethod.value!=='Card') cardNumberInput.value='';
-  });
-
-  document.querySelectorAll('.flavor').forEach(f=>f.addEventListener('change',updatePrices));
-  document.querySelectorAll('.quantity').forEach(q=>q.addEventListener('change',updatePrices));
-  addJuice.addEventListener('change',updatePrices);
-  juiceFlavor.addEventListener('change',updatePrices);
-  paidInput.addEventListener('input',updateChange);
-
-  function validateForm(){
-    const required=['custName','custEmail','custContact','custAddress','deliveryDate','amountPaid'];
-    for(let id of required){
-      if(!document.getElementById(id).value.trim()){
-        alert("Please fill out all required fields.");
-        return false;
-      }
-    }
-    if(total<=0){alert("Please select at least one flavor or juice.");return false;}
-    if(!paymentMethod.value){alert("Please select a payment method.");return false;}
-    if(paymentMethod.value==='Card'&&cardNumberInput.value.length<16){alert("Please enter a valid 16-digit card number.");return false;}
-    if(addJuice.checked&&!juiceFlavor.value){alert("Please select a juice flavor.");return false;}
-    return true;
-  }
-
-  function showReceipt(){
-    const name=document.getElementById('custName').value;
-    const email=document.getElementById('custEmail').value;
-    const contact=document.getElementById('custContact').value;
-    const address=document.getElementById('custAddress').value;
-    const date=document.getElementById('deliveryDate').value;
-    const note=document.getElementById('note').value;
-    const method=paymentMethod.value;
-    const card=method==='Card'?cardNumberInput.value:'N/A';
-    const amountPaid = parseFloat(paidInput.value).toFixed(2);
-    const change = parseFloat(changeDisplay.textContent).toFixed(2);
-
-    let itemsHTML='';
-    document.querySelectorAll('.flavor-option').forEach(option=>{
-      const checkbox=option.querySelector('.flavor');
-      const qtySelect=option.querySelector('.quantity');
-      if(checkbox && checkbox.checked && qtySelect.value>0){
-        itemsHTML+=`<p>${checkbox.dataset.name} x${qtySelect.value} - ₱${checkbox.dataset.price*qtySelect.value}</p>`;
-      }
-    });
-    if(addJuice.checked && juiceFlavor.value){
-      itemsHTML+=`<p>${juiceFlavor.value} - ₱50</p>`;
-    }
-
-    const receiptHTML=`
-      <div class="receipt-section"><strong>Customer Info:</strong>
-        <p>Name: ${name}</p>
-        <p>Email: ${email}</p>
-        <p>Contact: ${contact}</p>
-        <p>Address: ${address}</p>
-      </div>
-      <div class="receipt-section"><strong>Order Details:</strong>
-        ${itemsHTML}
-        <p>Delivery Date: ${date}</p>
-        <p>Note: ${note}</p>
-        <p>Total: ₱${total.toFixed(2)}</p>
-        <p>Amount Paid: ₱${amountPaid}</p>
-        <p>Change: ₱${change}</p>
-      </div>
-      <div class="receipt-section"><strong>Payment Method:</strong>
-        <p>${method}${method==='Card'?` - Card Number: ${card}`:''}</p>
-      </div>
-    `;
-    document.getElementById('receiptDetails').innerHTML=receiptHTML;
-    document.getElementById('receiptModal').style.display='flex';
-  }
-
-  function closeReceipt(){ document.getElementById('receiptModal').style.display='none'; }
-
-  document.getElementById('submitOrder').addEventListener('click',()=>{
-    if(!validateForm()) return;
-    orderMessage.style.display='block';
-    orderMessage.style.opacity=1;
-    setTimeout(()=>{
-      orderMessage.style.opacity=0;
-      setTimeout(()=>{
-        orderMessage.style.display='none';
-        showReceipt();
-      },500);
-    },1800);
-  });
-</script>
+            document.getElementById(section).style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
