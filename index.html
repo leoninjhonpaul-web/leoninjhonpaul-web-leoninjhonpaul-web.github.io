@@ -1,237 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* ===== NAVBAR ===== */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        padding: 15px 0;
+    }
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000;
-            padding: 15px 0;
-        }
+    .navbar .logo { display: none; }
 
-        .navbar .logo {
-            display: none;
-        }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-        }
+    .nav-links a {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        .nav-links a {
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .nav-links a:hover { color: lightgray; }
 
-        .nav-links a:hover {
-            color: lightgray;
-        }
+    /* ===== HOME SECTION ===== */
+    .hero {
+        height: 100vh;
+        width: 100%;
+        background-image: url('BR.jpg'); /* palitan ng gusto mong image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
-        /* ===== HOME SECTION ===== */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            background-image: url('BR.jpg'); /* palitan ng gusto mong image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1;
+    }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
+    .hero-content {
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 2;
+    }
 
-        .profile-img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
+    .hero-content h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 5px black;
+    }
 
-        .hero-content {
-            text-align: center;
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
+    .profile-img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+    }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px black;
-        }
+    .hero-content p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
 
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    .btn:hover { background: #333; }
 
-        .btn:hover {
-            background: #333;
-        }
+    /* ===== ABOUT SECTION ===== */
+    .about-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(0,0,0,0.65);
+        padding: 30px;
+        border-radius: 15px;
+        color: white;
+        text-align: justify;
+        line-height: 2.0;
+    }
 
-        /* ===== ABOUT SECTION ===== */
-        .about-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(0,0,0,0.65);
-            padding: 30px;
-            border-radius: 15px;
-            color: white;
-            text-align: justify;
-            line-height: 2.0;
-        }
+    .about-card h2 {
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 5px black;
+        margin-bottom: 20px;
+    }
 
-        .about-card h2 {
-            text-align: center;
-            color: white;
-            text-shadow: 2px 2px 5px black;
-            margin-bottom: 20px;
-        }
+    .about-section {
+        background-image: url('fam.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 60px 20px;
+        border-radius: 10px;
+    }
 
-        .about-section {
-            background-image: url('fam.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            border-radius: 10px;
-        }
+    /* ===== PROJECTS SECTION ===== */
+    .projects {
+        background-image: url('pics.jpg'); 
+        background-size: cover;
+        background-position: center;
+        padding: 60px 20px;
+        border-radius: 10px;
+    }
 
-        /* ===== PROJECTS SECTION ===== */
-        .projects {
-            background-image: url('pics.jpg'); 
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            border-radius: 10px;
-        }
+    .project-card img { width: 100%; border-radius: 10px; }
+    .project-card { margin-bottom: 20px; }
 
-        .project-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
+    /* ===== CONTACT SECTION ===== */
+    .contact-bg {
+        background-image: url('contact.jpg'); /* palitan ng gusto mong image */
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding: 80px 20px;
+        border-radius: 10px;
+    }
 
-        .project-card {
-            margin-bottom: 20px;
-        }
+    .contact-bg::before {
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,0.55);
+        z-index:1;
+    }
 
-        /* ===== CONTACT SECTION ===== */
-        .contact-bg {
-            background-image: url('contact.jpg'); /* palitan ng gusto mong image */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding: 80px 20px;
-            border-radius: 10px;
-        }
+    .contact-content {
+        position: relative;
+        z-index:2;
+        max-width: 700px;
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+    }
 
-        .contact-bg::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.55);
-            z-index: 1;
-        }
+    .contact-content h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 5px black;
+    }
 
-        .contact-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-            color: white;
-            text-align: center;
-        }
+    .contact-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
 
-        .contact-content h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px black;
-        }
+    .contact-content ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
 
-        .contact-content p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+    .contact-content ul li {
+        margin: 10px 0;
+        font-size: 18px;
+    }
 
-        .contact-content ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
+    .contact-map iframe {
+        width: 100%;
+        height: 350px;
+        border:0;
+        border-radius:12px;
+    }
 
-        .contact-content ul li {
-            margin: 10px 0;
-            font-size: 18px;
-        }
+    /* Hide sections by default EXCEPT HOME */
+    #about, #projects, #contact { display: none; }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .contact-form button {
-            padding: 12px 25px;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .contact-form button:hover {
-            background: #333;
-        }
-
-        /* Hide sections by default EXCEPT HOME */
-        #about, #projects, #contact {
-            display: none;
-        }
-
-    </style>
+</style>
 </head>
 <body>
 
@@ -249,9 +218,9 @@
 
     <!-- HOME SECTION -->
     <section id="home" class="hero">
-        <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         <div class="hero-content">
             <h1>MY PORTFOLIO</h1>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
             <p>Hello! I'm Jhon Paul P. Leonin, an 18-year-old IT student from OMSC San Jose Campus.</p>
             <p>I am passionate about web development, technology, and creating meaningful projects.</p>
             <p>Explore my work below and learn more about me!</p>
@@ -266,7 +235,6 @@
             <p>
                 Hi! I’m <b>Jhon Paul P. Leonin</b>, <b>18-year-old IT student</b> born on <b>January 22, 2007</b> in 
                 <b>Mamburao, Occidental Mindoro</b>. I am currently studying at <b>OMSC–San Jose Campus</b>, where I continue to develop my skills in technology, web development, and digital creativity. I am passionate about building meaningful projects, exploring innovative ideas, and improving myself day by day.
-
                 <br><br>
                 I grew up in a supportive family. My mother, <b>Esther P. Leonin</b>, and my father, <b>Francisco Y. Leonin Jr.</b>, have always inspired me to stay humble and determined. I have two brothers, <b>Jaxith Pierre</b> and <b>Marc Justin Leonin</b>, who motivate me to keep striving for success.
                 <br><br>
@@ -287,28 +255,24 @@
                 <p>A simple webpage that showcases my creative writing story.</p>
                 <a href="story.html" class="btn">View Story</a>
             </div>
-
             <div class="project-card">
                 <img src="vv.jpg" alt="Recipe Project">
                 <h3>Recipe Website</h3>
                 <p>A simple recipe site showcasing delicious pork adobo with ingredients and instructions.</p>
                 <a href="Recipe.html" class="btn">View Project</a>
             </div>
-
             <div class="project-card">
                 <img src="ee.jpg" alt="Paulpastil Project">
                 <h3>Ordered Form Website</h3>
                 <p>Website guides users to easily order Paulpastil online.</p>
                 <a href="Paulpastil.html" class="btn">View Project</a>
             </div>
-
             <div class="project-card">
                 <img src="med.jpg" alt="Convertion Project">
                 <h3>Convertion Website</h3>
                 <p>A project that improves portfolio design with modern UI/UX features.</p>
                 <a href="convertion.html" class="btn">View Project</a>
             </div>
-
             <div class="project-card">
                 <img src="B.jpg" alt="CSS">
                 <h3>Bycycle Website</h3>
@@ -323,19 +287,19 @@
         <div class="contact-bg">
             <div class="contact-content">
                 <h2>Contact Me</h2>
-                <p>If you want to reach out, feel free to contact me through any of the following:</p>
+                <p>Feel free to reach out! Here’s where you can find me or connect with me online:</p>
                 <ul>
                     <li><b>Contact No:</b> 09511692822</li>
                     <li><b>Email:</b> <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
                     <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
                 </ul>
-                <!-- Optional: Contact Form -->
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.123456!2d120.7164!3d13.0872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd9f8500000001%3A0xabcdef1234567890!2sMulawin%2C+Santa+Cruz%2C+Occidental+Mindoro%2C+Philippines!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -351,7 +315,6 @@
             document.getElementById("about").style.display = "none";
             document.getElementById("projects").style.display = "none";
             document.getElementById("contact").style.display = "none";
-
             document.getElementById(section).style.display = "block";
         }
     </script>
