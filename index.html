@@ -6,7 +6,107 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <style>
-       
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            padding: 15px 0;
+        }
+
+        .navbar .logo {
+            display: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: lightgray;
+        }
+
+        /* ===== HOME SECTION ===== */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background-image: url('BR.jpg'); /* palitan ng gusto mong image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        /* ===== ABOUT SECTION ===== */
         .about-card {
             max-width: 900px;
             margin: 0 auto;
@@ -15,7 +115,7 @@
             border-radius: 15px;
             color: white;
             text-align: justify;
-            line-height: 1.7;
+            line-height: 2.0;
         }
 
         .about-card h2 {
@@ -33,7 +133,7 @@
             border-radius: 10px;
         }
 
-       
+        /* ===== PROJECTS SECTION ===== */
         .projects {
             background-image: url('pics.jpg'); 
             background-size: cover;
@@ -51,42 +151,111 @@
             margin-bottom: 20px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
+        /* ===== CONTACT SECTION ===== */
+        .contact-bg {
+            background-image: url('contact.jpg'); /* palitan ng gusto mong image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 80px 20px;
+            border-radius: 10px;
         }
 
-        .btn:hover {
+        .contact-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: 1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .contact-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .contact-content ul li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 12px 25px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
             background: #333;
         }
+
+        /* Hide sections by default EXCEPT HOME */
+        #about, #projects, #contact {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
+
     <!-- NAVBAR -->
     <header>
         <nav class="navbar">
-            <h1 class="logo">My Portfolio</h1>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HOME SECTION -->
     <section id="home" class="hero">
         <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         <div class="hero-content">
-            <h2>Hello, I'm <span class="highlight">Jhon Paul P. Leonin</span></h2>
-            <p>I'm an IT student and aspiring web developer.</p>
-            <a href="#projects" class="btn">View My Work</a>
+            <h1>MY PORTFOLIO</h1>
+            <p>Hello! I'm Jhon Paul P. Leonin, an 18-year-old IT student from OMSC San Jose Campus.</p>
+            <p>I am passionate about web development, technology, and creating meaningful projects.</p>
+            <p>Explore my work below and learn more about me!</p>
+            <a href="#" onclick="showSection('projects')" class="btn">View My Work</a>
         </div>
     </section>
 
@@ -99,28 +268,11 @@
                 <b>Mamburao, Occidental Mindoro</b>. I am currently studying at <b>OMSC–San Jose Campus</b>, where I continue to develop my skills in technology, web development, and digital creativity. I am passionate about building meaningful projects, exploring innovative ideas, and improving myself day by day.
 
                 <br><br>
-
                 I grew up in a supportive family. My mother, <b>Esther P. Leonin</b>, and my father, <b>Francisco Y. Leonin Jr.</b>, have always inspired me to stay humble and determined. I have two brothers, <b>Jaxith Pierre</b> and <b>Marc Justin Leonin</b>, who motivate me to keep striving for success.
-
                 <br><br>
-
-                I enjoy doing various activities that help me relax and express myself. My hobbies include <b>driving, singing, biking, traveling, taking photos, trying street foods</b>, and exploring new environments. These activities allow me to learn, unwind, and appreciate the world around me.
-
+                I enjoy doing various activities: <b>driving, singing, biking, traveling, taking photos, trying street foods</b>, and exploring new environments.
                 <br><br>
-
-                As a person, I would describe myself as <b>goal-oriented, disciplined, friendly, respectful, and consistently motivated</b>. I always aim to grow not just as a student, but also as an individual. I admire people who work quietly, stay committed to their goals, and achieve success through perseverance and hard work.
-
-                <br><br>
-
-                After I graduate, I plan to pursue a career as a <b>skilled programmer</b> and also work toward my long-time dream of becoming a <b>police officer</b>. I believe that with dedication, continuous learning, and faith, I can achieve both paths.
-
-                <br><br>
-
-                Here are some of my personal favorites: I love listening to <b>old songs</b>, visiting <b>beautiful places like the beach</b>. My favorite colors are <b>black and white</b> for their simplicity and elegance, and my comfort food will always be <b>French fries</b>.
-
-                <br><br>
-
-                As I continue my journey in the IT field, my goal is to create projects that are not only functional but also inspiring. I want to contribute to solutions that make life easier, encourage creativity, and reflect my passion for technology and innovation.
+                I aim to become a <b>skilled programmer</b> and one day a <b>police officer</b>.
             </p>
         </div>
     </section>
@@ -129,8 +281,6 @@
     <section id="projects" class="projects">
         <h2>My Projects</h2>
         <div class="project-list">
-
-            <!-- STORY PROJECT -->
             <div class="project-card">
                 <img src="gg.jpg" alt="Story Project">
                 <h3>Short Story Website</h3>
@@ -138,7 +288,6 @@
                 <a href="story.html" class="btn">View Story</a>
             </div>
 
-            <!-- RECIPE PROJECT -->
             <div class="project-card">
                 <img src="vv.jpg" alt="Recipe Project">
                 <h3>Recipe Website</h3>
@@ -146,7 +295,6 @@
                 <a href="Recipe.html" class="btn">View Project</a>
             </div>
 
-            <!-- ORDERED FORM PROJECT -->
             <div class="project-card">
                 <img src="ee.jpg" alt="Paulpastil Project">
                 <h3>Ordered Form Website</h3>
@@ -154,38 +302,59 @@
                 <a href="Paulpastil.html" class="btn">View Project</a>
             </div>
 
-            <!-- FOURTH PROJECT -->
             <div class="project-card">
-                <img src="med.jpg" alt="convertion Project">
+                <img src="med.jpg" alt="Convertion Project">
                 <h3>Convertion Website</h3>
                 <p>A project that improves portfolio design with modern UI/UX features.</p>
                 <a href="convertion.html" class="btn">View Project</a>
             </div>
 
-            <!-- FIFTH PROJECT -->
             <div class="project-card">
                 <img src="B.jpg" alt="CSS">
                 <h3>Bycycle Website</h3>
                 <p>A project bycycle.</p>
                 <a href="CSS.html" class="btn">View Project</a>
             </div>
-
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>If you want to reach out, message me here:</p>
-        <ul>
-            <li>Contact no: <a href="09511692822">09511692822</a></li>
-            <li>Email: <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
-            <li>Facebook: <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
-        </ul>
+        <div class="contact-bg">
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+                <p>If you want to reach out, feel free to contact me through any of the following:</p>
+                <ul>
+                    <li><b>Contact No:</b> 09511692822</li>
+                    <li><b>Email:</b> <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
+                    <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
+                </ul>
+                <!-- Optional: Contact Form -->
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Jhon Paul P. Leonin. All rights reserved.</p>
     </footer>
+
+    <!-- SHOW / HIDE SCRIPT -->
+    <script>
+        function showSection(section) {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("projects").style.display = "none";
+            document.getElementById("contact").style.display = "none";
+
+            document.getElementById(section).style.display = "block";
+        }
+    </script>
+
 </body>
 </html>
