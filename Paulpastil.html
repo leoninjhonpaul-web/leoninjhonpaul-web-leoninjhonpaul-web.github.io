@@ -19,239 +19,138 @@
 
   .container {
     display: flex;
+    justify-content: center;
+    align-items: stretch;
     gap: 30px;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-top: 30px;
-    align-items: stretch; /* para pareho ang height ng boxes */
   }
 
-  .description, .browser-frame {
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    backdrop-filter: blur(6px);
-    background-color: rgba(255,255,255,0.3);
-    padding: 20px;
+  /* Description Section */
+  .description {
+    flex-basis: 45%;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    color: #2b2b2b;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-  }
-
-  .description {
-    width: 42%;
-    text-align: center;
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Georgia', serif;
   }
 
   .description h1 {
-    font-size: 48px;
+    font-size: 50px;
     color: #3b2f2f;
-    text-transform: uppercase;
     margin-bottom: 15px;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.4),
-                 0 0 10px rgba(255,215,0,0.5);
-    font-family: 'Brush Script MT', cursive;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   }
 
   .description img {
-    width: 90%;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    width: 95%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
   }
 
   .description p {
-    font-size: 35px;
+    font-size: 32px;
     line-height: 1.8;
-    font-weight: 500;
-    padding: 5px;
-    background-color: transparent;
+    flex: 1;
+    padding: 6px;
   }
 
+  /* Order Form Section */
   .browser-frame {
-    width: 48%;
-    position: relative;
-    border: 3px solid transparent;
+    flex-basis: 35%;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
     overflow: hidden;
+    backdrop-filter: blur(8px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .browser-frame::before {
-    content:"";
+    content: "";
     position: absolute;
     inset: -3px;
     border-radius: 12px;
     background: linear-gradient(45deg, #ff8800, #ff0000, #ffdd00, #ff6600);
     background-size: 300% 300%;
-    animation: borderGlow 1.5s infinite linear;
+    animation: borderGlow 4s infinite linear;
     z-index: -1;
   }
 
   @keyframes borderGlow {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .form-container {
-    width: 100%;
-    padding: 20px;
+    background-color: rgba(255,255,255,0.35);
+    padding: 16px 18px;
+    border-radius: 12px;
+    color: #222;
+    text-align: left;
+    backdrop-filter: blur(6px);
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    font-size: 13px;
-    color: #222;
+    overflow-y: auto;
   }
 
-  h1 {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+  h1 { text-align: center; font-size: 16px; color: #111; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+  .section { background-color: rgba(255, 255, 255, 0.5); border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; border: 1px solid rgba(0, 0, 0, 0.5); text-align: left; }
+
+  .section h2 { font-size: 11px; margin-bottom: 5px; border-bottom: 1px solid #000; padding-bottom: 2px; text-transform: uppercase; letter-spacing: 0.3px; }
+
+  label { font-weight: 600; font-size: 11px; display: block; margin-top: 3px; }
+
+  input[type="text"], input[type="number"], input[type="email"], input[type="date"], select, textarea {
+    padding: 3px; border: 1px solid #000; border-radius: 4px; font-size: 11px; background-color: rgba(255, 255, 255, 0.3); margin-bottom: 5px; display: block; text-align: left; color: #000;
   }
 
-  .section {
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(0,0,0,0.5);
-  }
-
-  .section h2 {
-    font-size: 12px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-
-  label {
-    font-weight: 600;
-    font-size: 12px;
-    display: block;
-    margin-top: 4px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  input[type="date"],
-  select,
-  textarea {
-    padding: 5px 8px;
-    border: 1px solid #000;
-    border-radius: 4px;
-    font-size: 12px;
-    margin-bottom: 6px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #000;
-  }
+  .short-input { width: 60%; }
+  .contact-input { width: 50%; }
+  .address-box { width: 70%; height: 28px; }
+  .short-select, .short-date, .short-textarea { width: 60%; }
+  .card-input { width: 60%; }
+  #juiceFlavor { width: 120px; }
 
   textarea { resize: none; }
 
-  .short-input { width: 100%; }
-  .contact-input { width: 100%; }
-  .address-box { width: 100%; height: 40px; }
-  .short-select, .short-date, .short-textarea { width: 100%; }
-  .card-input { width: 100%; }
+  .flavor-option { display: flex; align-items: center; justify-content: flex-start; font-size: 11px; margin-bottom: 6px; gap: 10px; }
+  .flavor-option label { flex: 1; margin: 0; }
+  .flavor-option select { width: 45px; }
+  .price { font-weight: bold; color: #222; font-size: 11px; }
 
-  .flavor-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
+  .total-container { text-align: right; font-size: 12px; font-weight: bold; margin-top: 6px; border-top: 1px solid #000; padding-top: 5px; }
 
-  .flavor-option label {
-    flex: 2;
-  }
+  button { background-color: #000; color: white; border: none; font-weight: bold; padding: 8px; border-radius: 6px; cursor: pointer; width: 40%; display: block; margin: 10px auto 0; font-size: 13px; transition: 0.2s ease; }
+  button:hover { background-color: #333; transform: scale(1.03); }
 
-  .flavor-option select { flex: 1; }
-  .price { flex: 1; font-weight: bold; text-align: right; }
+  .receipt-modal { display: none; position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.6); justify-content: center; align-items: center; z-index: 10; }
+  .receipt-box { background: linear-gradient(135deg, #fff8e1, #ffe0b2); border: 2px solid #ff9800; border-radius: 12px; padding: 30px 35px; width: 380px; box-shadow: 0 6px 25px rgba(0,0,0,0.4); text-align: left; font-size: 13.5px; color: #333; line-height: 1.7; font-family: 'Calibri', sans-serif; }
+  .receipt-box h2 { text-align: center; color: #d84315; border-bottom: 2px solid #ff9800; padding-bottom: 8px; margin-bottom: 14px; font-size: 20px; text-transform: uppercase; letter-spacing: 1.2px; text-shadow: 1px 1px 2px rgba(255, 152, 0, 0.5); }
+  .receipt-section { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px dashed #ffa726; }
+  .receipt-section strong { color: #e65100; font-weight: 600; }
+  .receipt-box p { margin: 5px 0; }
+  .close-btn { background-color: #000; color: #fff; border: none; padding: 6px 14px; border-radius: 5px; cursor: pointer; display: block; margin: 10px auto 0; font-size: 12px; }
+  .close-btn:hover { background-color: #333; }
 
-  .total-container {
-    text-align: right;
-    font-weight: bold;
-    border-top: 1px solid #000;
-    padding-top: 4px;
-  }
-
-  button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    font-weight: bold;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 14px;
-    transition: 0.2s ease;
-  }
-
-  button:hover { background-color: #333; transform: scale(1.02); }
-
-  .receipt-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-  }
-
-  .receipt-box {
-    background: linear-gradient(135deg,#fff8e1,#ffe0b2);
-    border:2px solid #ff9800;
-    border-radius:12px;
-    padding:25px 30px;
-    width: 380px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.4);
-    text-align:left;
-    font-size:13px;
-    color:#333;
-    line-height:1.6;
-    font-family:'Calibri',sans-serif;
-  }
-
-  .receipt-box h2 {
-    text-align:center;
-    color:#d84315;
-    border-bottom:2px solid #ff9800;
-    padding-bottom:6px;
-    margin-bottom:12px;
-    font-size:18px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    text-shadow:1px 1px 2px rgba(255,152,0,0.5);
-  }
-
-  .receipt-section { margin-bottom:10px; border-bottom:1px dashed #ffa726; padding-bottom:6px; }
-  .receipt-section strong { color:#e65100; }
-  .close-btn { margin-top:10px; background:#000; color:#fff; border:none; padding:6px 14px; border-radius:5px; cursor:pointer; width:100%; }
-  .close-btn:hover{background:#333;}
-  #orderMessage{
-    display:none;
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#28a745;
-    color:#fff;
-    padding:15px 25px;
-    border-radius:8px;
-    font-weight:bold;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    z-index:20;
-    opacity:0;
-    transition: opacity 0.5s;
-  }
+  #orderMessage { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #28a745; color: #fff; padding: 15px 25px; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 20; opacity: 0; transition: opacity 0.5s; }
 </style>
 </head>
 <body>
@@ -267,39 +166,41 @@
     <div class="form-container">
       <h1>Order Form</h1>
 
-      <!-- Customer Info -->
       <div class="section">
         <h2>Customer Info</h2>
         <label>Full Name:</label>
-        <input type="text" id="custName" required>
+        <input type="text" id="custName" class="short-input" required>
         <label>Email:</label>
-        <input type="email" id="custEmail" required>
+        <input type="email" id="custEmail" class="short-input" required>
         <label>Contact Number:</label>
-        <input type="text" id="custContact" maxlength="11" required>
+        <input type="text" id="custContact" class="contact-input" maxlength="11" required>
         <label>Address:</label>
-        <textarea id="custAddress" required></textarea>
+        <textarea id="custAddress" class="address-box" required></textarea>
       </div>
 
-      <!-- Order Details -->
       <div class="section">
         <h2>Order Details</h2>
         <label>Pastil Flavor:</label>
+
         <div class="flavor-option">
           <label><input type="checkbox" class="flavor" data-name="Regular Chicken" data-price="50"> Regular Chicken</label>
           <select class="quantity"><option value="0"></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
           <span class="price">₱0</span>
         </div>
+
         <div class="flavor-option">
           <label><input type="checkbox" class="flavor" data-name="Spicy Chicken" data-price="90"> Spicy Chicken</label>
           <select class="quantity"><option value="0"></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
           <span class="price">₱0</span>
         </div>
+
         <div class="flavor-option">
           <label><input type="checkbox" class="flavor" data-name="Hot & Spicy" data-price="120"> Hot & Spicy</label>
           <select class="quantity"><option value="0"></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
           <span class="price">₱0</span>
         </div>
 
+        <br>
         <label>Additional Juice (+₱50):</label>
         <div class="flavor-option">
           <label><input type="checkbox" id="addJuice" data-price="50"> Add Juice</label>
@@ -309,41 +210,41 @@
             <option>Mango Juice</option>
             <option>Pineapple Juice</option>
           </select>
-          <span id="juicePrice">₱0</span>
+          <span id="juicePrice" class="price">₱0</span>
         </div>
 
         <label>Delivery Date:</label>
-        <input type="date" id="deliveryDate" required>
+        <input type="date" id="deliveryDate" class="short-date" required>
 
         <div class="total-container">Total: ₱<span id="total">0</span></div>
+
         <label>Amount Paid:</label>
-        <input type="number" id="amountPaid" required>
+        <input type="number" id="amountPaid" class="short-input" required>
         <div class="total-container">Change: ₱<span id="change">0</span></div>
       </div>
 
-      <!-- Payment -->
       <div class="section">
         <h2>Payment Method</h2>
-        <select id="paymentMethod" required>
+        <select id="paymentMethod" class="short-select" required>
           <option value=""></option>
           <option>Cash on Delivery</option>
           <option>GCash</option>
           <option>Pay Maya</option>
           <option>Card</option>
         </select>
-        <div id="cardNumberContainer" style="display:none;">
+
+        <div id="cardNumberContainer" style="display: none;">
           <label>Card Number:</label>
-          <input type="password" id="cardNumber" maxlength="16" placeholder="Enter 16-digit card number">
+          <input type="password" id="cardNumber" maxlength="16" placeholder="Enter 16-digit card number" class="card-input">
         </div>
       </div>
 
-      <!-- Additional Note -->
       <div class="section">
         <h2>Additional Note</h2>
-        <textarea id="note" placeholder="Add any special instructions..." style="height:35px;"></textarea>
+        <textarea id="note" class="short-textarea" placeholder="Add any special instructions..." style="height: 35px;"></textarea>
       </div>
 
-      <button id="submitOrder">Submit Order</button>
+      <button type="button" id="submitOrder">Submit Order</button>
     </div>
   </div>
 </div>
@@ -359,142 +260,148 @@
 </div>
 
 <script>
-  // --- JavaScript ---
-  const totalDisplay = document.getElementById('total');
-  const changeDisplay = document.getElementById('change');
-  const paidInput = document.getElementById('amountPaid');
-  const paymentMethod = document.getElementById('paymentMethod');
-  const cardNumberContainer = document.getElementById('cardNumberContainer');
-  const cardNumberInput = document.getElementById('cardNumber');
-  const addJuice = document.getElementById('addJuice');
-  const juiceFlavor = document.getElementById('juiceFlavor');
-  const juicePrice = document.getElementById('juicePrice');
-  const orderMessage = document.getElementById('orderMessage');
-  let total = 0;
+const totalDisplay = document.getElementById('total');
+const changeDisplay = document.getElementById('change');
+const paidInput = document.getElementById('amountPaid');
+const paymentMethod = document.getElementById('paymentMethod');
+const cardNumberContainer = document.getElementById('cardNumberContainer');
+const cardNumberInput = document.getElementById('cardNumber');
+const addJuice = document.getElementById('addJuice');
+const juiceFlavor = document.getElementById('juiceFlavor');
+const juicePrice = document.getElementById('juicePrice');
+const orderMessage = document.getElementById('orderMessage');
+let total = 0;
 
-  function updatePrices() {
-    total = 0;
-    document.querySelectorAll('.flavor-option').forEach(option => {
-      const checkbox = option.querySelector('.flavor');
-      const qtySelect = option.querySelector('.quantity');
-      const priceDisplay = option.querySelector('.price');
-      if (!checkbox) return;
-      const price = parseInt(checkbox.dataset.price);
-      const qty = parseInt(qtySelect ? qtySelect.value : 0) || 0;
-      if (checkbox.checked && qty > 0) {
-        priceDisplay.textContent = `₱${price*qty}`;
-        total += price*qty;
-      } else if (priceDisplay) {
-        priceDisplay.textContent = '₱0';
-      }
-    });
-
-    if (addJuice.checked) {
-      juiceFlavor.disabled = false;
-      juicePrice.textContent = "₱50";
-      total += 50;
-    } else {
-      juiceFlavor.disabled = true;
-      juiceFlavor.value = "";
-      juicePrice.textContent = "₱0";
+function updatePrices() {
+  total = 0;
+  document.querySelectorAll('.flavor-option').forEach(option => {
+    const checkbox = option.querySelector('.flavor');
+    const qtySelect = option.querySelector('.quantity');
+    const priceDisplay = option.querySelector('.price');
+    if (!checkbox) return;
+    const price = parseInt(checkbox.dataset.price);
+    const qty = parseInt(qtySelect ? qtySelect.value : 0) || 0;
+    if (checkbox.checked && qty > 0) {
+      priceDisplay.textContent = `₱${price*qty}`;
+      total += price*qty;
+    } else if (priceDisplay) {
+      priceDisplay.textContent = '₱0';
     }
-
-    totalDisplay.textContent = total.toFixed(2);
-    updateChange();
-  }
-
-  function updateChange() {
-    const paid = parseFloat(paidInput.value) || 0;
-    changeDisplay.textContent = paid >= total ? (paid - total).toFixed(2) : '0.00';
-  }
-
-  paymentMethod.addEventListener('change', () => {
-    cardNumberContainer.style.display = paymentMethod.value==='Card'?'block':'none';
-    if(paymentMethod.value!=='Card') cardNumberInput.value='';
   });
 
-  document.querySelectorAll('.flavor').forEach(f=>f.addEventListener('change',updatePrices));
-  document.querySelectorAll('.quantity').forEach(q=>q.addEventListener('change',updatePrices));
-  addJuice.addEventListener('change',updatePrices);
-  juiceFlavor.addEventListener('change',updatePrices);
-  paidInput.addEventListener('input',updateChange);
-
-  function validateForm(){
-    const required=['custName','custEmail','custContact','custAddress','deliveryDate','amountPaid'];
-    for(let id of required){
-      if(!document.getElementById(id).value.trim()){
-        alert("Please fill out all required fields.");
-        return false;
-      }
-    }
-    if(total<=0){alert("Please select at least one flavor or juice.");return false;}
-    if(!paymentMethod.value){alert("Please select a payment method.");return false;}
-    if(paymentMethod.value==='Card'&&cardNumberInput.value.length<16){alert("Please enter a valid 16-digit card number.");return false;}
-    if(addJuice.checked&&!juiceFlavor.value){alert("Please select a juice flavor.");return false;}
-    return true;
+  if (addJuice.checked) {
+    juiceFlavor.disabled = false;
+    juicePrice.textContent = "₱50";
+    total += 50;
+  } else {
+    juiceFlavor.disabled = true;
+    juiceFlavor.value = "";
+    juicePrice.textContent = "₱0";
   }
 
-  function showReceipt(){
-    const name=document.getElementById('custName').value;
-    const email=document.getElementById('custEmail').value;
-    const contact=document.getElementById('custContact').value;
-    const address=document.getElementById('custAddress').value;
-    const date=document.getElementById('deliveryDate').value;
-    const note=document.getElementById('note').value;
-    const method=paymentMethod.value;
-    const card=method==='Card'?cardNumberInput.value:'N/A';
-    const amountPaid = parseFloat(paidInput.value).toFixed(2);
-    const change = parseFloat(changeDisplay.textContent).toFixed(2);
+  totalDisplay.textContent = total.toFixed(2);
+  updateChange();
+}
 
-    let itemsHTML='';
-    document.querySelectorAll('.flavor-option').forEach(option=>{
-      const checkbox=option.querySelector('.flavor');
-      const qtySelect=option.querySelector('.quantity');
-      if(checkbox && checkbox.checked && qtySelect.value>0){
-        itemsHTML+=`<p>${checkbox.dataset.name} x${qtySelect.value} - ₱${checkbox.dataset.price*qtySelect.value}</p>`;
-      }
-    });
-    if(addJuice.checked && juiceFlavor.value){
-      itemsHTML+=`<p>${juiceFlavor.value} - ₱50</p>`;
+function updateChange() {
+  const paid = parseFloat(paidInput.value) || 0;
+  changeDisplay.textContent = paid >= total ? (paid - total).toFixed(2) : '0.00';
+}
+
+paymentMethod.addEventListener('change', () => {
+  cardNumberContainer.style.display = paymentMethod.value==='Card'?'block':'none';
+  if(paymentMethod.value!=='Card') cardNumberInput.value='';
+});
+
+document.querySelectorAll('.flavor').forEach(f=>f.addEventListener('change',updatePrices));
+document.querySelectorAll('.quantity').forEach(q=>q.addEventListener('change',updatePrices));
+addJuice.addEventListener('change',updatePrices);
+juiceFlavor.addEventListener('change',updatePrices);
+paidInput.addEventListener('input',updateChange);
+
+function validateForm(){
+  const required=['custName','custEmail','custContact','custAddress','deliveryDate','amountPaid'];
+  for(let id of required){
+    if(!document.getElementById(id).value.trim()){
+      alert("Please fill out all required fields.");
+      return false;
     }
+  }
+  if(total<=0){alert("Please select at least one flavor or juice.");return false;}
+  if(!paymentMethod.value){alert("Please select a payment method.");return false;}
+  if(paymentMethod.value==='Card'&&cardNumberInput.value.length<16){alert("Please enter a valid 16-digit card number.");return false;}
+  if(addJuice.checked&&!juiceFlavor.value){alert("Please select a juice flavor.");return false;}
+  return true;
+}
 
-    const receiptHTML=`
-      <div class="receipt-section"><strong>Customer Info:</strong>
-        <p>Name: ${name}</p>
-        <p>Email: ${email}</p>
-        <p>Contact: ${contact}</p>
-        <p>Address: ${address}</p>
-      </div>
-      <div class="receipt-section"><strong>Order Details:</strong>
-        ${itemsHTML}
-        <p>Delivery Date: ${date}</p>
-        <p>Note: ${note}</p>
-        <p>Total: ₱${total.toFixed(2)}</p>
-        <p>Amount Paid: ₱${amountPaid}</p>
-        <p>Change: ₱${change}</p>
-      </div>
-      <div class="receipt-section"><strong>Payment Method:</strong>
-        <p>${method}${method==='Card'?` - Card Number: ${card}`:''}</p>
-      </div>
-    `;
-    document.getElementById('receiptDetails').innerHTML=receiptHTML;
-    document.getElementById('receiptModal').style.display='flex';
+function showReceipt(){
+  const name=document.getElementById('custName').value;
+  const email=document.getElementById('custEmail').value;
+  const contact=document.getElementById('custContact').value;
+  const address=document.getElementById('custAddress').value;
+  const date=document.getElementById('deliveryDate').value;
+  const note=document.getElementById('note').value;
+  const method=paymentMethod.value;
+  const card=method==='Card'?cardNumberInput.value:'N/A';
+  const amountPaid = parseFloat(paidInput.value).toFixed(2);
+  const change = parseFloat(changeDisplay.textContent).toFixed(2);
+
+  let itemsHTML='';
+  document.querySelectorAll('.flavor-option').forEach(option=>{
+    const checkbox=option.querySelector('.flavor');
+    const qtySelect=option.querySelector('.quantity');
+    if(checkbox && checkbox.checked && qtySelect.value>0){
+      itemsHTML+=`<p>${checkbox.dataset.name} x${qtySelect.value} - ₱${checkbox.dataset.price*qtySelect.value}</p>`;
+    }
+  });
+
+  if(addJuice.checked && juiceFlavor.value){
+    itemsHTML+=`<p>${juiceFlavor.value} - ₱50</p>`;
   }
 
-  function closeReceipt(){ document.getElementById('receiptModal').style.display='none'; }
+  document.getElementById('receiptDetails').innerHTML=
+  `<div class="receipt-section">
+    <strong>Customer Info:</strong>
+    <p>Name: ${name}</p>
+    <p>Email: ${email}</p>
+    <p>Contact: ${contact}</p>
+    <p>Address: ${address}</p>
+    <p>Delivery Date: ${date}</p>
+    <p>Note: ${note}</p>
+  </div>
+  <div class="receipt-section">
+    <strong>Order Details:</strong>
+    ${itemsHTML}
+    <p>Total: ₱${total.toFixed(2)}</p>
+    <p>Amount Paid: ₱${amountPaid}</p>
+    <p>Change: ₱${change}</p>
+    <p>Payment Method: ${method}</p>
+    <p>Card Number: ${card}</p>
+  </div>`;
+  document.getElementById('receiptModal').style.display='flex';
+}
 
-  document.getElementById('submitOrder').addEventListener('click',()=>{
-    if(!validateForm()) return;
-    orderMessage.style.display='block';
-    orderMessage.style.opacity=1;
-    setTimeout(()=>{
-      orderMessage.style.opacity=0;
-      setTimeout(()=>{
-        orderMessage.style.display='none';
+function closeReceipt(){
+  document.getElementById('receiptModal').style.display='none';
+}
+
+// Updated submitOrder listener: first message, then receipt
+document.getElementById('submitOrder').addEventListener('click', () => {
+  if (validateForm()) {
+    // Ipakita muna ang success message
+    orderMessage.style.display = 'block';
+    orderMessage.style.opacity = 1;
+
+    // Matapos ang 2.5s, i-fade out ang message at saka ipakita ang receipt
+    setTimeout(() => {
+      orderMessage.style.opacity = 0;
+      setTimeout(() => {
+        orderMessage.style.display = 'none';
         showReceipt();
-      },500);
-    },1800);
-  });
+      }, 500); // fade-out duration
+    }, 2500); // display duration
+  }
+});
 </script>
 
 </body>
