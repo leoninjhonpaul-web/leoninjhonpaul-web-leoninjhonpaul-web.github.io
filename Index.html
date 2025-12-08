@@ -1,351 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* ===== NAVBAR ===== */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        padding: 15px 0;
+    }
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000;
-            padding: 15px 0;
-        }
+    .navbar .logo {
+        display: none;
+    }
 
-        .navbar .logo {
-            display: none;
-        }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        padding: 0;
+        margin: 0;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-        }
+    .nav-links a {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-        .nav-links a {
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .nav-links a:hover {
+        color: lightgray;
+    }
 
-        .nav-links a:hover {
-            color: lightgray;
-        }
+    .nav-links a.active {
+        border-bottom: 3px solid white;
+        padding-bottom: 5px;
+    }
 
-        /* ===== HOME SECTION ===== */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            background-image: url('BR.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+    /* ===== HOME SECTION ===== */
+    .hero {
+        height: 100vh;
+        width: 100%;
+        background-image: url('BR.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1;
+    }
 
-        .profile-img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
+    .profile-img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+    }
 
-        .hero-content {
-            text-align: center;
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
+    .hero-content {
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 2;
+    }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px black;
-        }
+    .hero-content h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 5px black;
+    }
 
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
+    .hero-content p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
 
-        .btn:hover {
-            background: #333;
-        }
+    .btn:hover {
+        background: #333;
+    }
 
-        /* ===== ABOUT SECTION ===== */
-        .about-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(0,0,0,0.65);
-            padding: 30px;
-            border-radius: 15px;
-            color: white;
-            text-align: justify;
-            line-height: 2.0;
-        }
+    /* ===== ABOUT SECTION ===== */
+    .about-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(0,0,0,0.65);
+        padding: 30px;
+        border-radius: 15px;
+        color: white;
+        text-align: justify;
+        line-height: 2.0;
+    }
 
-        .about-card h2 {
-            text-align: center;
-            color: white;
-            text-shadow: 2px 2px 5px black;
-            margin-bottom: 20px;
-        }
+    .about-card h2 {
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 5px black;
+        margin-bottom: 20px;
+    }
 
-        .about-section {
-            background-image: url('fam.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            border-radius: 10px;
-        }
+    .about-section {
+        background-image: url('fam.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 60px 20px;
+        border-radius: 10px;
+    }
 
-        /* ===== PROJECTS SECTION ===== */
-        .projects {
-            background-image: url('pics.jpg'); 
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            border-radius: 10px;
-        }
+    /* ===== PROJECTS SECTION ===== */
+    .projects {
+        background-image: url('pics.jpg'); 
+        background-size: cover;
+        background-position: center;
+        padding: 60px 20px;
+        border-radius: 10px;
+    }
 
-        .project-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
+    .project-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
 
-        .project-card {
-            margin-bottom: 20px;
-        }
+    .project-card {
+        margin-bottom: 20px;
+    }
 
-        /* ===== CONTACT SECTION ===== */
-        .contact-bg {
-            background-image: url('contact.jpg'); 
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding: 80px 20px;
-            border-radius: 10px;
-        }
+    /* ===== CONTACT SECTION ===== */
+    .contact-bg {
+        background-image: url('contact.jpg'); 
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding: 80px 20px;
+        border-radius: 10px;
+    }
 
-        .contact-bg::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.55);
-            z-index: 1;
-        }
+    .contact-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.55);
+        z-index: 1;
+    }
 
-        .contact-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            color: white;
-            text-align: center;
-        }
+    .contact-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+    }
 
-        .contact-content h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px black;
-        }
+    .contact-content h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 5px black;
+    }
 
-        .contact-content p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+    .contact-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
 
-        .contact-content ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
+    .contact-content ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
 
-        .contact-content ul li {
-            margin: 10px 0;
-            font-size: 18px;
-        }
+    .contact-content ul li {
+        margin: 10px 0;
+        font-size: 18px;
+    }
 
-        iframe {
-            border: 0;
-            width: 100%;
-            height: 400px;
-            border-radius: 10px;
-        }
+    iframe {
+        border: 0;
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+    }
 
-        /* Hide sections by default EXCEPT HOME */
-        #about, #projects, #contact {
-            display: none;
-        }
-
-    </style>
+    /* Hide sections by default */
+    #home, #about, #projects, #contact {
+        display: none;
+    }
+</style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#" onclick="showSection('home')">Home</a></li>
-                <li><a href="#" onclick="showSection('about')">About</a></li>
-                <li><a href="#" onclick="showSection('projects')">Projects</a></li>
-                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+<header>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('about')">About</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('projects')">Projects</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>MY PORTFOLIO</h1>
+        <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+        <p>Hello! I'm Jhon Paul P. Leonin, an 18-year-old IT student from OMSC San Jose Campus.</p>
+        <p>I am passionate about web development, technology, and creating meaningful projects.</p>
+        <p>Explore my work below and learn more about me!</p>
+        <a href="javascript:void(0)" onclick="showSection('projects')" class="btn">View My Work</a>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="about-card">
+        <h2>About Me</h2>
+        <p>
+        Hello! My name is <b>Jhon Paul P. Leonin</b>, an <b>18-year-old IT student</b> born on <b>January 22, 2007</b> in <b>Mamburao, Occidental Mindoro</b>. I grew up in the peaceful and humble community of <b>Santa Cruz, Occidental Mindoro</b>, where I learned the importance of respect, simplicity, and hard work. Today, I proudly study at <b>OMSC – San Jose Campus</b>, where I continue to nurture my passion for technology, web development, and lifelong learning. I believe that every small step I take brings me closer to becoming the best version of myself.
+
+        <br><br>
+
+        I am blessed with a loving and hardworking family who constantly inspires me. My mother, <b>Esther P. Leonin</b>, works as a <b>housekeeper</b>, and through her dedication, she showed me the true meaning of patience, humility, and inner strength. My father, <b>Francisco Y. Leonin Jr.</b>, is a <b>farmer</b> whose unwavering perseverance taught me discipline, responsibility, and the value of earning through honest work. My brothers, <b>Jaxith Pierre</b> and <b>Marc Justin Leonin</b>, continuously motivate me to dream bigger and to push myself beyond my limits. Everything I hope to achieve in life is inspired by the sacrifices, guidance, and love of the people I call family.
+
+        <br><br>
+
+        I enjoy many activities that help me grow creatively and personally, such as <b>driving, singing, biking, photography, and traveling to new places</b>. These experiences allow me to discover different perspectives and appreciate the beauty of both simple and unforgettable moments. I also love exploring food, especially <b>shawarma, french fries, pizza, and milk tea</b>. The <b>beach</b> is my favorite place to relax and think, as its calm waves remind me that life continues to move forward no matter what challenges come my way. My love for <b>black and white</b> colors reflects my personality clean, simple, calm, and timeless.
+
+        <br><br>
+
+        As a young student with big dreams, I believe that challenges are opportunities for growth. I value <b>respect, humility, discipline, leadership, and continuous self-improvement</b>. My long-term goal is to become a <b>skilled programmer</b> specializing in web development and software engineering. I want to create digital solutions that help people, solve real-world problems, and inspire others to explore the world of technology. Beyond my passion for IT, I also dream of serving my community as a <b>dedicated police officer</b>, driven by a deep desire to protect others and make my hometown a safer place.
+
+        <br><br>
+
+        I know that the journey ahead will not always be easy, but I believe in the power of determination, hard work, and faith. Every day, I strive to learn new things, improve my skills, and grow not just as a student but as a person with purpose. I carry with me the values I learned from my family and the lessons I gained from my hometown. I aim to build a future where my character, dedication, and talents create a positive impact on other people. With hope in my heart and determination in my mind, I continue to move forward, ready to embrace every challenge and opportunity that comes my way.
+        </p>
+    </div>
+</section>
+
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project-list">
+        <div class="project-card">
+            <img src="gg.jpg" alt="Story Project">
+            <h3>Short Story Website</h3>
+            <p>A simple webpage that showcases my creative writing story.</p>
+            <a href="story.html" class="btn">View Story</a>
+        </div>
+        <div class="project-card">
+            <img src="vv.jpg" alt="Recipe Project">
+            <h3>Recipe Website</h3>
+            <p>A simple recipe site showcasing delicious pork adobo with ingredients and instructions.</p>
+            <a href="Recipe.html" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+            <img src="ee.jpg" alt="Paulpastil Project">
+            <h3>Ordered Form Website</h3>
+            <p>Website guides users to easily order Paulpastil online.</p>
+            <a href="Paulpastil.html" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+            <img src="med.jpg" alt="Convertion Project">
+            <h3>Convertion Website</h3>
+            <p>A project that improves portfolio design with modern UI/UX features.</p>
+            <a href="convertion.html" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+            <img src="B.jpg" alt="CSS">
+            <h3>Bicycle Website</h3>
+            <p>A project Bicycle.</p>
+            <a href="CSS.html" class="btn">View Project</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="contact-bg">
+        <div class="contact-content">
+            <h2>Contact Me</h2>
+            <p>If you want to reach out, feel free to contact me through any of the following:</p>
+            <ul>
+                <li><b>Contact No:</b> 09511692822</li>
+                <li><b>Email:</b> <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
+                <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <!-- HOME SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>MY PORTFOLIO</h1>
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-            <p>Hello! I'm Jhon Paul P. Leonin, an 18-year-old IT student from OMSC San Jose Campus.</p>
-            <p>I am passionate about web development, technology, and creating meaningful projects.</p>
-            <p>Explore my work below and learn more about me!</p>
-            <a href="#" onclick="showSection('projects')" class="btn">View My Work</a>
+            <p>Visit my location:</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.092748450113!2d120.51535801513102!3d13.24218179060325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b2ee87ee2f7a37%3A0xc2b33f229ea91449!2sMulawin%2C%20Santa%20Cruz%2C%20Occidental%20Mindoro!5e0!3m2!1sen!2sph!4v1708795300000!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="about-section">
-        <div class="about-card">
-            <h2>About Me</h2>
-            <p>
-    Hello! My name is <b>Jhon Paul P. Leonin</b>, an <b>18-year-old IT student</b> born on <b>January 22, 2007</b> in <b>Mamburao, Occidental Mindoro</b>. I grew up in the peaceful and humble community of <b>Santa Cruz, Occidental Mindoro</b>, where I learned the importance of respect, simplicity, and hard work. Today, I proudly study at <b>OMSC – San Jose Campus</b>, where I continue to nurture my passion for technology, web development, and lifelong learning. I believe that every small step I take brings me closer to becoming the best version of myself.
+<footer>
+    <p>&copy; 2025 Jhon Paul P. Leonin. All rights reserved.</p>
+</footer>
 
-    <br><br>
+<script>
+var lastSection = "home";
 
-    I am blessed with a loving and hardworking family who constantly inspires me. My mother, <b>Esther P. Leonin</b>, works as a <b>housekeeper</b>, and through her dedication, she showed me the true meaning of patience, humility, and inner strength. My father, <b>Francisco Y. Leonin Jr.</b>, is a <b>farmer</b> whose unwavering perseverance taught me discipline, responsibility, and the value of earning through honest work. My brothers, <b>Jaxith Pierre</b> and <b>Marc Justin Leonin</b>, continuously motivate me to dream bigger and to push myself beyond my limits. Everything I hope to achieve in life is inspired by the sacrifices, guidance, and love of the people I call family.
+// Load correct section based on URL hash or default
+document.addEventListener('DOMContentLoaded', function () {
+    var hash = window.location.hash.replace("#", "");
+    if(hash && document.getElementById(hash)){
+        showSection(hash, false);
+    } else {
+        showSection("home", false);
+    }
+});
 
-    <br><br>
+function showSection(section, pushState = true) {
+    var home = document.getElementById("home");
+    var about = document.getElementById("about");
+    var projects = document.getElementById("projects");
+    var contact = document.getElementById("contact");
 
-    I enjoy many activities that help me grow creatively and personally, such as <b>driving, singing, biking, photography, and traveling to new places</b>. These experiences allow me to discover different perspectives and appreciate the beauty of both simple and unforgettable moments. I also love exploring food, especially <b>shawarma, french fries, pizza, and milk tea</b>. The <b>beach</b> is my favorite place to relax and think, as its calm waves remind me that life continues to move forward no matter what challenges come my way. My love for <b>black and white</b> colors reflects my personality clean, simple, calm, and timeless.
+    home.style.display = "none";
+    about.style.display = "none";
+    projects.style.display = "none";
+    contact.style.display = "none";
 
-    <br><br>
+    var active = document.getElementById(section);
+    if(section === "home"){
+        active.style.display = "flex";
+    } else {
+        active.style.display = "block";
+    }
 
-    As a young student with big dreams, I believe that challenges are opportunities for growth. I value <b>respect, humility, discipline, leadership, and continuous self-improvement</b>. My long-term goal is to become a <b>skilled programmer</b> specializing in web development and software engineering. I want to create digital solutions that help people, solve real-world problems, and inspire others to explore the world of technology. Beyond my passion for IT, I also dream of serving my community as a <b>dedicated police officer</b>, driven by a deep desire to protect others and make my hometown a safer place.
+    lastSection = section;
+    setActiveLink(section);
 
-    <br><br>
+    if(pushState){
+        history.pushState({section: section}, "", "#" + section);
+    }
+}
 
-    I know that the journey ahead will not always be easy, but I believe in the power of determination, hard work, and faith. Every day, I strive to learn new things, improve my skills, and grow not just as a student but as a person with purpose. I carry with me the values I learned from my family and the lessons I gained from my hometown. I aim to build a future where my character, dedication, and talents create a positive impact on other people. With hope in my heart and determination in my mind, I continue to move forward, ready to embrace every challenge and opportunity that comes my way.
-</p>
-
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project-list">
-            <div class="project-card">
-                <img src="gg.jpg" alt="Story Project">
-                <h3>Short Story Website</h3>
-                <p>A simple webpage that showcases my creative writing story.</p>
-                <a href="story.html" class="btn">View Story</a>
-            </div>
-
-            <div class="project-card">
-                <img src="vv.jpg" alt="Recipe Project">
-                <h3>Recipe Website</h3>
-                <p>A simple recipe site showcasing delicious pork adobo with ingredients and instructions.</p>
-                <a href="Recipe.html" class="btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <img src="ee.jpg" alt="Paulpastil Project">
-                <h3>Ordered Form Website</h3>
-                <p>Website guides users to easily order Paulpastil online.</p>
-                <a href="Paulpastil.html" class="btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <img src="med.jpg" alt="Convertion Project">
-                <h3>Convertion Website</h3>
-                <p>A project that improves portfolio design with modern UI/UX features.</p>
-                <a href="convertion.html" class="btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <img src="B.jpg" alt="CSS">
-                <h3>Bicycle Website</h3>
-                <p>A project Bicycle.</p>
-                <a href="CSS.html" class="btn">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact">
-        <div class="contact-bg">
-            <div class="contact-content">
-                <h2>Contact Me</h2>
-                <p>If you want to reach out, feel free to contact me through any of the following:</p>
-                <ul>
-                    <li><b>Contact No:</b> 09511692822</li>
-                    <li><b>Email:</b> <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
-                    <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
-                </ul>
-                <p>Visit my location:</p>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.092748450113!2d120.51535801513102!3d13.24218179060325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b2ee87ee2f7a37%3A0xc2b33f229ea91449!2sMulawin%2C%20Santa%20Cruz%2C%20Occidental%20Mindoro!5e0!3m2!1sen!2sph!4v1708795300000!5m2!1sen!2sph" 
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Jhon Paul P. Leonin. All rights reserved.</p>
-    </footer>
-
-    <!-- SHOW / HIDE SCRIPT -->
-    <script>
-        function showSection(section) {
-            document.getElementById("home").style.display = "none";
-            document.getElementById("about").style.display = "none";
-            document.getElementById("projects").style.display = "none";
-            document.getElementById("contact").style.display = "none";
-
-            document.getElementById(section).style.display = "block";
+function setActiveLink(section){
+    var links = document.querySelectorAll(".nav-links a");
+    links.forEach(link => {
+        link.classList.remove("active");
+        if(link.getAttribute("onclick").includes(section)){
+            link.classList.add("active");
         }
-    </script>
+    });
+}
+
+// Back/forward button handling
+window.addEventListener("popstate", function(event){
+    if(event.state && event.state.section){
+        showSection(event.state.section, false);
+    } else {
+        showSection("home", false);
+    }
+});
+</script>
 
 </body>
 </html>
