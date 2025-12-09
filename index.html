@@ -182,7 +182,7 @@
     .contact-content {
         position: relative;
         z-index: 2;
-        max-width: 900px;
+        max-width: 700px; /* uniform width */
         margin: 0 auto;
         color: white;
         text-align: center;
@@ -194,27 +194,68 @@
         text-shadow: 2px 2px 5px black;
     }
 
+    .contact-content h3 {
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 3px black;
+    }
+
     .contact-content p {
         font-size: 18px;
         margin-bottom: 20px;
     }
 
-    .contact-content ul {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 30px;
+    .contact-info {
+        display:flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 40px; 
+        margin-bottom: 40px;
     }
 
-    .contact-content ul li {
-        margin: 10px 0;
-        font-size: 18px;
+    .contact-info div {
+        flex: 1 1 200px; /* uniform size for each contact item */
+        max-width: 250px;
+    }
+
+    .contact-info a:hover {
+        color: #ffd700;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        width: 100%; /* uniform width */
+    }
+
+    .contact-form button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #fff;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 100%; /* uniform width */
+    }
+
+    .contact-form button:hover {
+        background: #ffd700;
+        color: #000;
     }
 
     iframe {
         border: 0;
         width: 100%;
-        height: 400px;
-        border-radius: 10px;
+        height: 350px; /* slightly smaller map */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        margin-top: 20px;
     }
 
     /* Hide sections by default */
@@ -238,7 +279,7 @@
 
 <section id="home" class="hero">
     <div class="hero-content">
-        <h1> "ALL ABOUT ME" <br></br>MY PORTFOLIO</h1>
+        <h1>MY PORTFOLIO</h1>
         <img src="profile.jpg" alt="Profile Picture" class="profile-img">
         <p>Hello! I'm Jhon Paul P. Leonin, an 18-year-old IT student from OMSC San Jose Campus.</p>
         <p>I am passionate about web development, technology, and creating meaningful projects.</p>
@@ -312,14 +353,38 @@
     <div class="contact-bg">
         <div class="contact-content">
             <h2>Contact Me</h2>
-            <p>If you want to reach out, feel free to contact me through any of the following:</p>
-            <ul>
-                <li><b>Contact No:</b> 09511692822</li>
-                <li><b>Email:</b> <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a></li>
-                <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a></li>
-            </ul>
-            <p>Visit my location:</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.092748450113!2d120.51535801513102!3d13.24218179060325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b2ee87ee2f7a37%3A0xc2b33f229ea91449!2sMulawin%2C%20Santa%20Cruz%2C%20Occidental%20Mindoro!5e0!3m2!1sen!2sph!4v1708795300000!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>I'd love to hear from you! Reach out via the methods below or send me a message directly.</p>
+
+            <div class="contact-info">
+                <div>
+                    <span style="font-size:24px;">📞</span>
+                    <a href="tel:09511692822">09511692822</a>
+                </div>
+                <div>
+                    <span style="font-size:24px;">✉️</span>
+                    <a href="mailto:leoninjhonpaul@gmail.com">leoninjhonpaul@gmail.com</a>
+                </div>
+                <div>
+                    <span style="font-size:24px;">🌐</span>
+                    <a href="https://facebook.com/" target="_blank">Jhon Paul Leonin</a>
+                </div>
+            </div>
+
+            <h3>Send Me a Message</h3>
+            <form action="mailto:leoninjhonpaul@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <h3>Find Me on the Map</h3>
+            <p>Visit my location in <b>Mulawin, Santa Cruz, Occidental Mindoro</b>:</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.092748450113!2d120.51535801513102!3d13.24218179060325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b2ee87ee2f7a37%3A0xc2b33f229ea91449!2sMulawin%2C%20Santa%20Cruz%2C%20Occidental%20Mindoro!5e0!3m2!1sen!2sph!4v1708795300000!5m2!1sen!2sph" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 </section>
@@ -331,7 +396,6 @@
 <script>
 var lastSection = "home";
 
-// Load correct section based on URL hash or default
 document.addEventListener('DOMContentLoaded', function () {
     var hash = window.location.hash.replace("#", "");
     if(hash && document.getElementById(hash)){
@@ -377,7 +441,6 @@ function setActiveLink(section){
     });
 }
 
-// Back/forward button handling
 window.addEventListener("popstate", function(event){
     if(event.state && event.state.section){
         showSection(event.state.section, false);
